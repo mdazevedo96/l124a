@@ -1,14 +1,19 @@
 #include <stdbool.h>
+#define TAM 3
 
 struct tabuleiro{
-    char** mat;
+    char mat [TAM][TAM];
     bool livre;
+    char letra;
 
 };
 typedef struct tabuleiro Tabuleiro;
 
-Tabuleiro* criaMatriz();
+void inicializaMatriz();
 
-bool testaJogada(Tabuleiro* mat);
+int letraValida(Tabuleiro* mat);
 
-void insereJogada(Tabuleiro* mat, int jogador, char peca);
+void imprimirJogo(Tabuleiro* mat);
+
+int posicaoVazia(Tabuleiro* mat, int x, int y);
+

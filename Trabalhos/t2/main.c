@@ -69,6 +69,7 @@ int main(){
   int col_jogador = 30;
   int tempo_de_jogo = 0;
   bool fim = false;
+  Tabuleiro* mat;
 
   //inicialização do programa
   tela_ini();
@@ -92,6 +93,9 @@ int main(){
     // desenha a tela de acordo com o estado do jogo
     desenha_contorno();
     desenha_jogador(lin_jogador, col_jogador);
+
+   imprimirJogo(mat);
+
     tela_atualiza();
   }
 

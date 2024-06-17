@@ -2,37 +2,54 @@
 #include<stdlib.h>
 #include "matriz.h"
 
-#define TAM 3
 
 
-Tabuleiro* criaMatriz(){
-    char** mat = (char*) malloc(TAM*sizeof(char*));
+void inicializaMatriz(Tabuleiro* mat){
     for(int i=0; i<TAM; i++){
-        mat[i] = (char*) malloc(TAM* sizeof(char));
-    }
-    for(int i=0; i<TAM; i++){
-        for(int j=0; j<TAM; j++){
-            mat[i][j] = NULL;
+        for(int j=0; J<TAM; j++){
+            mat[i][j] = ' ';
         }
     }
-
-    return mat;
 }
 
-bool testaJogada(Tabuleiro* mat){
-    bool valida = false;
-
-    return valida;
-}
-
-void insereJogada(Tabuleiro* mat, int jogador, char peca){
-    bool valida = testaJogada(mat);
-    if(valida == true){
-        mat->livre = false;
+void imprimirJogo(Tabuleiro* mat){
+    for(int i=0; i< TAM; i++){
+        for(int j=0; j<TAM; j++){
+            printf("%c", mat[i][j]);
+                if(j < 2){
+                    printf("|");
+                }
+        }
+        if(i < 2){
+            printf("\n-------------");
+        }
+        printf("\n");
     }
 
 }
 
+int letraValida(Tabuleiro* mat){
+    if(mat->letra == 'x' || letra == 'o'){
+        return 1;
+    }else{
+        return 0;
+    }
+}
 
+int coordenadaValida(int x, int y){
+    if(x >=0 && x < 3){
+        if(y >=0 && y < 3){
+            return 1;
+        }
+    }
+    return 0;
+}
+
+int posicaoVazia(Tabuleiro* mat, int x, int y){
+    if(mat[x][y] != 'x' && mat[x][y] != '0'){
+        return 1;
+    }
+    return 0;
+}
 
 
